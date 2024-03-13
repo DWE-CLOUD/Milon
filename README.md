@@ -1,4 +1,5 @@
-# Milon
+<h1>MILON</h1>  ![Group 7 (1)](https://github.com/DWE-CLOUD/Milon/assets/143874503/49b9a0ad-b19d-461a-9c18-815ac43f2611)
+
 
 Federation-Based Blockchain Model for Distributed Training
 Overview
@@ -14,7 +15,7 @@ Features
     Scalability: The model is designed to scale horizontally with the addition of more nodes, allowing for larger datasets and more complex models.
     Security: Utilizes cryptographic techniques for secure communication, data privacy, and protection against adversarial attacks.
 
-Architecture
+<h2>Architecture</h2>
 
 The architecture consists of the following components:
 
@@ -24,7 +25,7 @@ The architecture consists of the following components:
     Model Aggregation Mechanism: Upon completion of epochs, a consensus mechanism is employed to aggregate model updates into a global model.
     Client Interface: Provides an interface for users to interact with the network, submit training data, and monitor training progress.
 
-Usage
+<h2>Usage</h2>
 
 To use the federation-based blockchain model for distributed training, follow these steps:
 
@@ -52,7 +53,8 @@ This project is licensed under the MIT License.
 Acknowledgments
 
 We acknowledge the contributions of the open-source community and the support received from individuals and organizations in developing this project.
-Contact
+Contact.
 
 For any inquiries or support, please contact 
 
+<p>Made with love by team Zynets</p>
