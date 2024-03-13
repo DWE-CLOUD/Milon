@@ -1,0 +1,3868 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "generate_watermark",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getwatermark_mapping",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint64",
+          "name": "upload_watermark",
+          "type": "uint64"
+        }
+      ],
+      "name": "verifyWatermark",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "watermark_mapping",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "2": "contracts/watermark_generator.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/watermark_generator.sol",
+    "exportedSymbols": {
+      "clientManager": [
+        289
+      ],
+      "watermarkNegotiation": [
+        363
+      ]
+    },
+    "id": 364,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 244,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "12:23:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "clientManager",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 289,
+        "linearizedBaseContracts": [
+          289
+        ],
+        "name": "clientManager",
+        "nameLocation": "45:13:2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "b975e33d",
+            "id": 248,
+            "mutability": "mutable",
+            "name": "clientId",
+            "nameLocation": "98:8:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 289,
+            "src": "64:42:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint64_$",
+              "typeString": "mapping(address => uint64)"
+            },
+            "typeName": {
+              "id": 247,
+              "keyName": "",
+              "keyNameLocation": "-1:-1:-1",
+              "keyType": {
+                "id": 245,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "72:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "64:26:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint64_$",
+                "typeString": "mapping(address => uint64)"
+              },
+              "valueName": "",
+              "valueNameLocation": "-1:-1:-1",
+              "valueType": {
+                "id": 246,
+                "name": "uint64",
+                "nodeType": "ElementaryTypeName",
+                "src": "83:6:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "61b8ce8c",
+            "id": 251,
+            "mutability": "mutable",
+            "name": "nextId",
+            "nameLocation": "126:6:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 289,
+            "src": "112:24:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint64",
+              "typeString": "uint64"
+            },
+            "typeName": {
+              "id": 249,
+              "name": "uint64",
+              "nodeType": "ElementaryTypeName",
+              "src": "112:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint64",
+                "typeString": "uint64"
+              }
+            },
+            "value": {
+              "hexValue": "31",
+              "id": 250,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "135:1:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
+              },
+              "value": "1"
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 287,
+              "nodeType": "Block",
+              "src": "187:209:2",
+              "statements": [
+                {
+                  "assignments": [
+                    260
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 260,
+                      "mutability": "mutable",
+                      "name": "client",
+                      "nameLocation": "214:6:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 287,
+                      "src": "197:23:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                        "typeString": "address[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 258,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "197:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "id": 259,
+                        "nodeType": "ArrayTypeName",
+                        "src": "197:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                          "typeString": "address[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 261,
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "197:23:2"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint64",
+                          "typeString": "uint64"
+                        },
+                        "id": 268,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "baseExpression": {
+                            "id": 263,
+                            "name": "clientId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 248,
+                            "src": "239:8:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_uint64_$",
+                              "typeString": "mapping(address => uint64)"
+                            }
+                          },
+                          "id": 266,
+                          "indexExpression": {
+                            "expression": {
+                              "id": 264,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -15,
+                              "src": "248:3:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 265,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberLocation": "252:6:2",
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "src": "248:10:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "239:20:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint64",
+                            "typeString": "uint64"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "30",
+                          "id": 267,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "263:1:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "239:25:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4164647265737320616c72656164792072656769737465726564",
+                        "id": 269,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "266:28:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_4ec0d22cb3a7ae925c074c3eaa428cb3b43ff37aa3eaec736ebc828248435dc2",
+                          "typeString": "literal_string \"Address already registered\""
+                        },
+                        "value": "Address already registered"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_4ec0d22cb3a7ae925c074c3eaa428cb3b43ff37aa3eaec736ebc828248435dc2",
+                          "typeString": "literal_string \"Address already registered\""
+                        }
+                      ],
+                      "id": 262,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "231:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 270,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "231:64:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 271,
+                  "nodeType": "ExpressionStatement",
+                  "src": "231:64:2"
+                },
+                {
+                  "expression": {
+                    "id": 277,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 272,
+                        "name": "clientId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 248,
+                        "src": "305:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint64_$",
+                          "typeString": "mapping(address => uint64)"
+                        }
+                      },
+                      "id": 275,
+                      "indexExpression": {
+                        "expression": {
+                          "id": 273,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "314:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 274,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "318:6:2",
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "314:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "305:20:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 276,
+                      "name": "nextId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 251,
+                      "src": "328:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "src": "305:29:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "id": 278,
+                  "nodeType": "ExpressionStatement",
+                  "src": "305:29:2"
+                },
+                {
+                  "expression": {
+                    "id": 280,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "344:8:2",
+                    "subExpression": {
+                      "id": 279,
+                      "name": "nextId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 251,
+                      "src": "344:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "id": 281,
+                  "nodeType": "ExpressionStatement",
+                  "src": "344:8:2"
+                },
+                {
+                  "expression": {
+                    "baseExpression": {
+                      "id": 282,
+                      "name": "clientId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 248,
+                      "src": "369:8:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint64_$",
+                        "typeString": "mapping(address => uint64)"
+                      }
+                    },
+                    "id": 285,
+                    "indexExpression": {
+                      "expression": {
+                        "id": 283,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "378:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 284,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "382:6:2",
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "378:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "369:20:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "functionReturnParameters": 255,
+                  "id": 286,
+                  "nodeType": "Return",
+                  "src": "362:27:2"
+                }
+              ]
+            },
+            "functionSelector": "1aa3a008",
+            "id": 288,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "register",
+            "nameLocation": "152:8:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 252,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "160:2:2"
+            },
+            "returnParameters": {
+              "id": 255,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 254,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 288,
+                  "src": "179:6:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 253,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "179:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "178:8:2"
+            },
+            "scope": 289,
+            "src": "143:253:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 364,
+        "src": "36:1159:2",
+        "usedErrors": [],
+        "usedEvents": []
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "watermarkNegotiation",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 363,
+        "linearizedBaseContracts": [
+          363
+        ],
+        "name": "watermarkNegotiation",
+        "nameLocation": "1205:20:2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "watermarkNegotiation.watermark",
+            "id": 295,
+            "members": [
+              {
+                "constant": false,
+                "id": 291,
+                "mutability": "mutable",
+                "name": "sign",
+                "nameLocation": "1300:4:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 295,
+                "src": "1293:11:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 290,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1293:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 294,
+                "mutability": "mutable",
+                "name": "key",
+                "nameLocation": "1321:3:2",
+                "nodeType": "VariableDeclaration",
+                "scope": 295,
+                "src": "1314:10:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                  "typeString": "uint256[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 292,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1314:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 293,
+                  "nodeType": "ArrayTypeName",
+                  "src": "1314:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                    "typeString": "uint256[]"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "watermark",
+            "nameLocation": "1274:9:2",
+            "nodeType": "StructDefinition",
+            "scope": 363,
+            "src": "1267:64:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "a1c792f2",
+            "id": 299,
+            "mutability": "mutable",
+            "name": "watermark_mapping",
+            "nameLocation": "1369:17:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 363,
+            "src": "1337:49:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 298,
+              "keyName": "",
+              "keyNameLocation": "-1:-1:-1",
+              "keyType": {
+                "id": 296,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "1345:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1337:24:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueName": "",
+              "valueNameLocation": "-1:-1:-1",
+              "valueType": {
+                "id": 297,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "1356:4:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 302,
+            "mutability": "mutable",
+            "name": "watermark_bit",
+            "nameLocation": "1399:13:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 363,
+            "src": "1392:25:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint32",
+              "typeString": "uint32"
+            },
+            "typeName": {
+              "id": 300,
+              "name": "uint32",
+              "nodeType": "ElementaryTypeName",
+              "src": "1392:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint32",
+                "typeString": "uint32"
+              }
+            },
+            "value": {
+              "hexValue": "3634",
+              "id": 301,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "1415:2:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_64_by_1",
+                "typeString": "int_const 64"
+              },
+              "value": "64"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 305,
+            "mutability": "mutable",
+            "name": "verification_threshold",
+            "nameLocation": "1430:22:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 363,
+            "src": "1423:34:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint32",
+              "typeString": "uint32"
+            },
+            "typeName": {
+              "id": 303,
+              "name": "uint32",
+              "nodeType": "ElementaryTypeName",
+              "src": "1423:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint32",
+                "typeString": "uint32"
+              }
+            },
+            "value": {
+              "hexValue": "3530",
+              "id": 304,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "1455:2:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_50_by_1",
+                "typeString": "int_const 50"
+              },
+              "value": "50"
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 330,
+              "nodeType": "Block",
+              "src": "1501:214:2",
+              "statements": [
+                {
+                  "assignments": [
+                    309
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 309,
+                      "mutability": "mutable",
+                      "name": "random_watermark",
+                      "nameLocation": "1569:16:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 330,
+                      "src": "1564:21:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 308,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1564:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 322,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "arguments": [
+                              {
+                                "expression": {
+                                  "id": 315,
+                                  "name": "block",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": -4,
+                                  "src": "1620:5:2",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_block",
+                                    "typeString": "block"
+                                  }
+                                },
+                                "id": 316,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1626:9:2",
+                                "memberName": "timestamp",
+                                "nodeType": "MemberAccess",
+                                "src": "1620:15:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              {
+                                "expression": {
+                                  "id": 317,
+                                  "name": "msg",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": -15,
+                                  "src": "1637:3:2",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_message",
+                                    "typeString": "msg"
+                                  }
+                                },
+                                "id": 318,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberLocation": "1641:6:2",
+                                "memberName": "sender",
+                                "nodeType": "MemberAccess",
+                                "src": "1637:10:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "expression": {
+                                "id": 313,
+                                "name": "abi",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": -1,
+                                "src": "1603:3:2",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_abi",
+                                  "typeString": "abi"
+                                }
+                              },
+                              "id": 314,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "memberLocation": "1607:12:2",
+                              "memberName": "encodePacked",
+                              "nodeType": "MemberAccess",
+                              "src": "1603:16:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                                "typeString": "function () pure returns (bytes memory)"
+                              }
+                            },
+                            "id": 319,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "nameLocations": [],
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1603:45:2",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          ],
+                          "id": 312,
+                          "name": "keccak256",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -8,
+                          "src": "1593:9:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                            "typeString": "function (bytes memory) pure returns (bytes32)"
+                          }
+                        },
+                        "id": 320,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1593:56:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "id": 311,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "ElementaryTypeNameExpression",
+                      "src": "1588:4:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_uint256_$",
+                        "typeString": "type(uint256)"
+                      },
+                      "typeName": {
+                        "id": 310,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1588:4:2",
+                        "typeDescriptions": {}
+                      }
+                    },
+                    "id": 321,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "typeConversion",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1588:62:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1564:86:2"
+                },
+                {
+                  "expression": {
+                    "id": 328,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 323,
+                        "name": "watermark_mapping",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 299,
+                        "src": "1660:17:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                          "typeString": "mapping(address => uint256)"
+                        }
+                      },
+                      "id": 326,
+                      "indexExpression": {
+                        "expression": {
+                          "id": 324,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1678:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 325,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberLocation": "1682:6:2",
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "1678:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1660:29:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 327,
+                      "name": "random_watermark",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 309,
+                      "src": "1692:16:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1660:48:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 329,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1660:48:2"
+                }
+              ]
+            },
+            "functionSelector": "028bd48e",
+            "id": 331,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "generate_watermark",
+            "nameLocation": "1473:18:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 306,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1491:2:2"
+            },
+            "returnParameters": {
+              "id": 307,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1501:0:2"
+            },
+            "scope": 363,
+            "src": "1464:251:2",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 341,
+              "nodeType": "Block",
+              "src": "1780:53:2",
+              "statements": [
+                {
+                  "expression": {
+                    "baseExpression": {
+                      "id": 336,
+                      "name": "watermark_mapping",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 299,
+                      "src": "1797:17:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                        "typeString": "mapping(address => uint256)"
+                      }
+                    },
+                    "id": 339,
+                    "indexExpression": {
+                      "expression": {
+                        "id": 337,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "1815:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 338,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "1819:6:2",
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "1815:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "1797:29:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 335,
+                  "id": 340,
+                  "nodeType": "Return",
+                  "src": "1790:36:2"
+                }
+              ]
+            },
+            "functionSelector": "8fc85a03",
+            "id": 342,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getwatermark_mapping",
+            "nameLocation": "1730:20:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 332,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1750:2:2"
+            },
+            "returnParameters": {
+              "id": 335,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 334,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 342,
+                  "src": "1774:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 333,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1774:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1773:6:2"
+            },
+            "scope": 363,
+            "src": "1721:112:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 361,
+              "nodeType": "Block",
+              "src": "1929:103:2",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 355,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "baseExpression": {
+                        "id": 351,
+                        "name": "watermark_mapping",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 299,
+                        "src": "1942:17:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                          "typeString": "mapping(address => uint256)"
+                        }
+                      },
+                      "id": 353,
+                      "indexExpression": {
+                        "id": 352,
+                        "name": "user",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 344,
+                        "src": "1960:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "1942:23:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "id": 354,
+                      "name": "upload_watermark",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 346,
+                      "src": "1969:16:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint64",
+                        "typeString": "uint64"
+                      }
+                    },
+                    "src": "1942:43:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "expression": {
+                      "hexValue": "66616c7365",
+                      "id": 358,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "2020:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "functionReturnParameters": 350,
+                    "id": 359,
+                    "nodeType": "Return",
+                    "src": "2013:12:2"
+                  },
+                  "id": 360,
+                  "nodeType": "IfStatement",
+                  "src": "1939:86:2",
+                  "trueBody": {
+                    "expression": {
+                      "hexValue": "74727565",
+                      "id": 356,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1994:4:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "functionReturnParameters": 350,
+                    "id": 357,
+                    "nodeType": "Return",
+                    "src": "1987:11:2"
+                  }
+                }
+              ]
+            },
+            "functionSelector": "a9a4090d",
+            "id": 362,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "verifyWatermark",
+            "nameLocation": "1848:15:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 347,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 344,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "1872:4:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1864:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 343,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1864:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 346,
+                  "mutability": "mutable",
+                  "name": "upload_watermark",
+                  "nameLocation": "1885:16:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1878:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  },
+                  "typeName": {
+                    "id": 345,
+                    "name": "uint64",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1878:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint64",
+                      "typeString": "uint64"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1863:39:2"
+            },
+            "returnParameters": {
+              "id": 350,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 349,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 362,
+                  "src": "1924:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 348,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1924:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1923:6:2"
+            },
+            "scope": 363,
+            "src": "1839:193:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 364,
+        "src": "1196:839:2",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "12:2026:2"
+  },
+  "bytecode": "6080604052600180546001600160401b03191664320000004017905534801561002757600080fd5b5061020e806100376000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063028bd48e146100515780638fc85a031461005b578063a1c792f21461007f578063a9a4090d1461009f575b600080fd5b6100596100c2565b005b336000908152602081905260409020545b6040519081526020015b60405180910390f35b61006c61008d366004610172565b60006020819052908152604090205481565b6100b26100ad366004610194565b61011a565b6040519015158152602001610076565b600042336040516020016100f292919091825260601b6bffffffffffffffffffffffff1916602082015260340190565b60408051601f1981840301815291815281516020928301203360009081529283905291205550565b6001600160a01b03821660009081526020819052604081205467ffffffffffffffff8316900361014c57506001610150565b5060005b92915050565b80356001600160a01b038116811461016d57600080fd5b919050565b60006020828403121561018457600080fd5b61018d82610156565b9392505050565b600080604083850312156101a757600080fd5b6101b083610156565b9150602083013567ffffffffffffffff811681146101cd57600080fd5b80915050925092905056fea26469706673582212204c9208cba42c7cb73d163c55a863daaa1f0fb44cad6bb77e29a7345f1f6a7e6964736f6c63430008180033",
+  "bytecodeSha1": "f447c7ee5ebaf50d658b3403f264ccee250f83a1",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.24+commit.e11b9ed9"
+  },
+  "contractName": "watermarkNegotiation",
+  "coverageMap": {
+    "branches": {
+      "2": {
+        "watermarkNegotiation.verifyWatermark": {
+          "4": [
+            1942,
+            1985,
+            false
+          ]
+        }
+      }
+    },
+    "statements": {
+      "2": {
+        "watermarkNegotiation.generate_watermark": {
+          "1": [
+            1660,
+            1708
+          ]
+        },
+        "watermarkNegotiation.getwatermark_mapping": {
+          "0": [
+            1790,
+            1826
+          ]
+        },
+        "watermarkNegotiation.verifyWatermark": {
+          "2": [
+            1987,
+            1998
+          ],
+          "3": [
+            2013,
+            2025
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "608060405234801561001057600080fd5b506004361061004c5760003560e01c8063028bd48e146100515780638fc85a031461005b578063a1c792f21461007f578063a9a4090d1461009f575b600080fd5b6100596100c2565b005b336000908152602081905260409020545b6040519081526020015b60405180910390f35b61006c61008d366004610172565b60006020819052908152604090205481565b6100b26100ad366004610194565b61011a565b6040519015158152602001610076565b600042336040516020016100f292919091825260601b6bffffffffffffffffffffffff1916602082015260340190565b60408051601f1981840301815291815281516020928301203360009081529283905291205550565b6001600160a01b03821660009081526020819052604081205467ffffffffffffffff8316900361014c57506001610150565b5060005b92915050565b80356001600160a01b038116811461016d57600080fd5b919050565b60006020828403121561018457600080fd5b61018d82610156565b9392505050565b600080604083850312156101a757600080fd5b6101b083610156565b9150602083013567ffffffffffffffff811681146101cd57600080fd5b80915050925092905056fea26469706673582212204c9208cba42c7cb73d163c55a863daaa1f0fb44cad6bb77e29a7345f1f6a7e6964736f6c63430008180033",
+  "deployedSourceMap": "1196:839:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1464:251;;;:::i;:::-;;1721:112;1815:10;1774:4;1797:29;;;;;;;;;;;1721:112;;;160:25:3;;;148:2;133:18;1721:112:2;;;;;;;;1337:49;;;;;;:::i;:::-;;;;;;;;;;;;;;;1839:193;;;;;;:::i;:::-;;:::i;:::-;;;1093:14:3;;1086:22;1068:41;;1056:2;1041:18;1839:193:2;928:187:3;1464:251:2;1564:21;1620:15;1637:10;1603:45;;;;;;;;1277:19:3;;;1334:2;1330:15;-1:-1:-1;;1326:53:3;1321:2;1312:12;;1305:75;1405:2;1396:12;;1120:294;1603:45:2;;;;-1:-1:-1;;1603:45:2;;;;;;;;;1593:56;;1603:45;1593:56;;;;1678:10;1588:62;1660:29;;;;;;;;;:48;-1:-1:-1;1464:251:2:o;1839:193::-;-1:-1:-1;;;;;1942:23:2;;1924:4;1942:23;;;;;;;;;;;:43;;;;;1939:86;;-1:-1:-1;1994:4:2;1987:11;;1939:86;-1:-1:-1;2020:5:2;1939:86;1839:193;;;;:::o;196:173:3:-;264:20;;-1:-1:-1;;;;;313:31:3;;303:42;;293:70;;359:1;356;349:12;293:70;196:173;;;:::o;374:186::-;433:6;486:2;474:9;465:7;461:23;457:32;454:52;;;502:1;499;492:12;454:52;525:29;544:9;525:29;:::i;:::-;515:39;374:186;-1:-1:-1;;;374:186:3:o;565:358::-;632:6;640;693:2;681:9;672:7;668:23;664:32;661:52;;;709:1;706;699:12;661:52;732:29;751:9;732:29;:::i;:::-;722:39;;811:2;800:9;796:18;783:32;855:18;848:5;844:30;837:5;834:41;824:69;;889:1;886;879:12;824:69;912:5;902:15;;;565:358;;;;;:::o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    1196,
+    2035
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x4C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x28BD48E EQ PUSH2 0x51 JUMPI DUP1 PUSH4 0x8FC85A03 EQ PUSH2 0x5B JUMPI DUP1 PUSH4 0xA1C792F2 EQ PUSH2 0x7F JUMPI DUP1 PUSH4 0xA9A4090D EQ PUSH2 0x9F JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x59 PUSH2 0xC2 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x6C PUSH2 0x8D CALLDATASIZE PUSH1 0x4 PUSH2 0x172 JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP2 SWAP1 MSTORE SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD DUP2 JUMP JUMPDEST PUSH2 0xB2 PUSH2 0xAD CALLDATASIZE PUSH1 0x4 PUSH2 0x194 JUMP JUMPDEST PUSH2 0x11A JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x76 JUMP JUMPDEST PUSH1 0x0 TIMESTAMP CALLER PUSH1 0x40 MLOAD PUSH1 0x20 ADD PUSH2 0xF2 SWAP3 SWAP2 SWAP1 SWAP2 DUP3 MSTORE PUSH1 0x60 SHL PUSH12 0xFFFFFFFFFFFFFFFFFFFFFFFF NOT AND PUSH1 0x20 DUP3 ADD MSTORE PUSH1 0x34 ADD SWAP1 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x1F NOT DUP2 DUP5 SUB ADD DUP2 MSTORE SWAP2 DUP2 MSTORE DUP2 MLOAD PUSH1 0x20 SWAP3 DUP4 ADD KECCAK256 CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE SWAP3 DUP4 SWAP1 MSTORE SWAP2 KECCAK256 SSTORE POP JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 DUP2 KECCAK256 SLOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP4 AND SWAP1 SUB PUSH2 0x14C JUMPI POP PUSH1 0x1 PUSH2 0x150 JUMP JUMPDEST POP PUSH1 0x0 JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x16D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x184 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x18D DUP3 PUSH2 0x156 JUMP JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x1A7 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x1B0 DUP4 PUSH2 0x156 JUMP JUMPDEST SWAP2 POP PUSH1 0x20 DUP4 ADD CALLDATALOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP2 AND DUP2 EQ PUSH2 0x1CD JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP1 SWAP2 POP POP SWAP3 POP SWAP3 SWAP1 POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x4C SWAP3 ADDMOD 0xCB LOG4 0x2C PUSH29 0xB73D163C55A863DAAA1F0FB44CAD6BB77E29A7345F1F6A7E6964736F6C PUSH4 0x43000818 STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "CALLVALUE",
+      "path": "2"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x10"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "14": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "LT",
+      "path": "2"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x4C"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "CALLDATALOAD",
+      "path": "2"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "SHR",
+      "path": "2"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x28BD48E"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x51"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x8FC85A03"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x5B"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xA1C792F2"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x7F"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "66": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xA9A4090D"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "72": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x9F"
+    },
+    "75": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "79": {
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "80": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        1196,
+        2035
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "81": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "82": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x59"
+    },
+    "85": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xC2"
+    },
+    "88": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "jump": "i",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "89": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "90": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "STOP",
+      "path": "2"
+    },
+    "91": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "92": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1815,
+        1825
+      ],
+      "op": "CALLER",
+      "path": "2",
+      "statement": 0
+    },
+    "93": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1774,
+        1778
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "95": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "96": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "97": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "98": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "100": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "101": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "102": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "103": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "105": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "106": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "107": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1797,
+        1826
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "108": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "109": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "111": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "112": {
+      "op": "SWAP1"
+    },
+    "113": {
+      "op": "DUP2"
+    },
+    "114": {
+      "op": "MSTORE"
+    },
+    "115": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "117": {
+      "op": "ADD"
+    },
+    "118": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "119": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "121": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "122": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "123": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "124": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "125": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "126": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1721,
+        1833
+      ],
+      "op": "RETURN",
+      "path": "2"
+    },
+    "127": {
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "128": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x6C"
+    },
+    "131": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x8D"
+    },
+    "134": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "135": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "137": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x172"
+    },
+    "140": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "jump": "i",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "141": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "142": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "144": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "146": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "147": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "148": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "149": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "150": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "151": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "152": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "154": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "155": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "156": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "157": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "158": {
+      "fn": "watermarkNegotiation.getwatermark_mapping",
+      "offset": [
+        1337,
+        1386
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "159": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "160": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xB2"
+    },
+    "163": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xAD"
+    },
+    "166": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "167": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "169": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x194"
+    },
+    "172": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "jump": "i",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "173": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "174": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x11A"
+    },
+    "177": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "jump": "i",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "178": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "179": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "181": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "182": {
+      "op": "SWAP1"
+    },
+    "183": {
+      "op": "ISZERO"
+    },
+    "184": {
+      "op": "ISZERO"
+    },
+    "185": {
+      "op": "DUP2"
+    },
+    "186": {
+      "op": "MSTORE"
+    },
+    "187": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "189": {
+      "op": "ADD"
+    },
+    "190": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x76"
+    },
+    "193": {
+      "op": "JUMP"
+    },
+    "194": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "195": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1564,
+        1585
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "197": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1620,
+        1635
+      ],
+      "op": "TIMESTAMP",
+      "path": "2"
+    },
+    "198": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1637,
+        1647
+      ],
+      "op": "CALLER",
+      "path": "2"
+    },
+    "199": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "201": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "202": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "204": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "205": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xF2"
+    },
+    "208": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "209": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "210": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "211": {
+      "op": "SWAP2"
+    },
+    "212": {
+      "op": "DUP3"
+    },
+    "213": {
+      "op": "MSTORE"
+    },
+    "214": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "216": {
+      "op": "SHL"
+    },
+    "217": {
+      "op": "PUSH12",
+      "value": "0xFFFFFFFFFFFFFFFFFFFFFFFF"
+    },
+    "230": {
+      "op": "NOT"
+    },
+    "231": {
+      "op": "AND"
+    },
+    "232": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "234": {
+      "op": "DUP3"
+    },
+    "235": {
+      "op": "ADD"
+    },
+    "236": {
+      "op": "MSTORE"
+    },
+    "237": {
+      "op": "PUSH1",
+      "value": "0x34"
+    },
+    "239": {
+      "op": "ADD"
+    },
+    "240": {
+      "op": "SWAP1"
+    },
+    "241": {
+      "op": "JUMP"
+    },
+    "242": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "243": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "245": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "246": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "247": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "249": {
+      "op": "NOT"
+    },
+    "250": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "251": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "252": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "253": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "254": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "255": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "256": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "257": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "258": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "259": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1593,
+        1649
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "260": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1593,
+        1649
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "261": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1603,
+        1648
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "263": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1593,
+        1649
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "264": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1593,
+        1649
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "265": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1593,
+        1649
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "266": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1593,
+        1649
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "267": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1678,
+        1688
+      ],
+      "op": "CALLER",
+      "path": "2",
+      "statement": 1
+    },
+    "268": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1588,
+        1650
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "270": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "271": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "272": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "273": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "274": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "275": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "276": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "277": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "278": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1689
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "279": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "offset": [
+        1660,
+        1708
+      ],
+      "op": "SSTORE",
+      "path": "2"
+    },
+    "280": {
+      "op": "POP"
+    },
+    "281": {
+      "fn": "watermarkNegotiation.generate_watermark",
+      "jump": "o",
+      "offset": [
+        1464,
+        1715
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "282": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "283": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "285": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "287": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "289": {
+      "op": "SHL"
+    },
+    "290": {
+      "op": "SUB"
+    },
+    "291": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "292": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "293": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1924,
+        1928
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "295": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "296": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "297": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "298": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "300": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "301": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "302": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "303": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "305": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "306": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "307": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1965
+      ],
+      "op": "SLOAD",
+      "path": "2"
+    },
+    "308": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1985
+      ],
+      "op": "PUSH8",
+      "path": "2",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "317": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1985
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "318": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1985
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "319": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1985
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "320": {
+      "branch": 4,
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1942,
+        1985
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "321": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1939,
+        2025
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x14C"
+    },
+    "324": {
+      "branch": 4,
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1939,
+        2025
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "325": {
+      "op": "POP"
+    },
+    "326": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1994,
+        1998
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 2,
+      "value": "0x1"
+    },
+    "328": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1987,
+        1998
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x150"
+    },
+    "331": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1987,
+        1998
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "332": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1939,
+        2025
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "333": {
+      "op": "POP"
+    },
+    "334": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        2020,
+        2025
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 3,
+      "value": "0x0"
+    },
+    "336": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1939,
+        2025
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "337": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "338": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "339": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "340": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "341": {
+      "fn": "watermarkNegotiation.verifyWatermark",
+      "jump": "o",
+      "offset": [
+        1839,
+        2032
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "342": {
+      "op": "JUMPDEST"
+    },
+    "343": {
+      "op": "DUP1"
+    },
+    "344": {
+      "op": "CALLDATALOAD"
+    },
+    "345": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "347": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "349": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "351": {
+      "op": "SHL"
+    },
+    "352": {
+      "op": "SUB"
+    },
+    "353": {
+      "op": "DUP2"
+    },
+    "354": {
+      "op": "AND"
+    },
+    "355": {
+      "op": "DUP2"
+    },
+    "356": {
+      "op": "EQ"
+    },
+    "357": {
+      "op": "PUSH2",
+      "value": "0x16D"
+    },
+    "360": {
+      "op": "JUMPI"
+    },
+    "361": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "363": {
+      "op": "DUP1"
+    },
+    "364": {
+      "op": "REVERT"
+    },
+    "365": {
+      "op": "JUMPDEST"
+    },
+    "366": {
+      "op": "SWAP2"
+    },
+    "367": {
+      "op": "SWAP1"
+    },
+    "368": {
+      "op": "POP"
+    },
+    "369": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "370": {
+      "op": "JUMPDEST"
+    },
+    "371": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "373": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "375": {
+      "op": "DUP3"
+    },
+    "376": {
+      "op": "DUP5"
+    },
+    "377": {
+      "op": "SUB"
+    },
+    "378": {
+      "op": "SLT"
+    },
+    "379": {
+      "op": "ISZERO"
+    },
+    "380": {
+      "op": "PUSH2",
+      "value": "0x184"
+    },
+    "383": {
+      "op": "JUMPI"
+    },
+    "384": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "386": {
+      "op": "DUP1"
+    },
+    "387": {
+      "op": "REVERT"
+    },
+    "388": {
+      "op": "JUMPDEST"
+    },
+    "389": {
+      "op": "PUSH2",
+      "value": "0x18D"
+    },
+    "392": {
+      "op": "DUP3"
+    },
+    "393": {
+      "op": "PUSH2",
+      "value": "0x156"
+    },
+    "396": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "397": {
+      "op": "JUMPDEST"
+    },
+    "398": {
+      "op": "SWAP4"
+    },
+    "399": {
+      "op": "SWAP3"
+    },
+    "400": {
+      "op": "POP"
+    },
+    "401": {
+      "op": "POP"
+    },
+    "402": {
+      "op": "POP"
+    },
+    "403": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "404": {
+      "op": "JUMPDEST"
+    },
+    "405": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "407": {
+      "op": "DUP1"
+    },
+    "408": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "410": {
+      "op": "DUP4"
+    },
+    "411": {
+      "op": "DUP6"
+    },
+    "412": {
+      "op": "SUB"
+    },
+    "413": {
+      "op": "SLT"
+    },
+    "414": {
+      "op": "ISZERO"
+    },
+    "415": {
+      "op": "PUSH2",
+      "value": "0x1A7"
+    },
+    "418": {
+      "op": "JUMPI"
+    },
+    "419": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "421": {
+      "op": "DUP1"
+    },
+    "422": {
+      "op": "REVERT"
+    },
+    "423": {
+      "op": "JUMPDEST"
+    },
+    "424": {
+      "op": "PUSH2",
+      "value": "0x1B0"
+    },
+    "427": {
+      "op": "DUP4"
+    },
+    "428": {
+      "op": "PUSH2",
+      "value": "0x156"
+    },
+    "431": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "432": {
+      "op": "JUMPDEST"
+    },
+    "433": {
+      "op": "SWAP2"
+    },
+    "434": {
+      "op": "POP"
+    },
+    "435": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "437": {
+      "op": "DUP4"
+    },
+    "438": {
+      "op": "ADD"
+    },
+    "439": {
+      "op": "CALLDATALOAD"
+    },
+    "440": {
+      "op": "PUSH8",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "449": {
+      "op": "DUP2"
+    },
+    "450": {
+      "op": "AND"
+    },
+    "451": {
+      "op": "DUP2"
+    },
+    "452": {
+      "op": "EQ"
+    },
+    "453": {
+      "op": "PUSH2",
+      "value": "0x1CD"
+    },
+    "456": {
+      "op": "JUMPI"
+    },
+    "457": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "459": {
+      "op": "DUP1"
+    },
+    "460": {
+      "op": "REVERT"
+    },
+    "461": {
+      "op": "JUMPDEST"
+    },
+    "462": {
+      "op": "DUP1"
+    },
+    "463": {
+      "op": "SWAP2"
+    },
+    "464": {
+      "op": "POP"
+    },
+    "465": {
+      "op": "POP"
+    },
+    "466": {
+      "op": "SWAP3"
+    },
+    "467": {
+      "op": "POP"
+    },
+    "468": {
+      "op": "SWAP3"
+    },
+    "469": {
+      "op": "SWAP1"
+    },
+    "470": {
+      "op": "POP"
+    },
+    "471": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "bf02d0f3ba90e59a866b13ac522361b533dea7d2",
+  "source": "//UNLICENSE\npragma solidity ^0.8.0;\ncontract clientManager{\n    mapping(address => uint64) public clientId;\n    uint64 public nextId = 1;\n\n    function register() public returns (uint64) {\n        address[] memory client;\n\n        require(clientId[msg.sender] == 0, \"Address already registered\");\n        clientId[msg.sender] = nextId;\n        nextId++;\n        return clientId[msg.sender];\n    }\n\n    // function pickIds(uint64 count) public view returns (uint64[] memory) {\n        \n    //     require(count > 0, \"Count must be greater than zero\");\n    //     require(count <= nextId - 1, \"Count must be less than or equal to the number of registered addresses\");\n\n    //     uint64[] memory ids;\n    //     uint64 remaining = count;\n    //     uint64 current = 1;\n\n    //     while (remaining > 0) {\n    //         uint randomseed = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender)));\n    //         uint64 random_number = uint64(randomseed);\n    //         if (clientId[random_number%(nextId-1)] != 0) {\n    //             ids[count - remaining] = current;\n    //             remaining--;\n    //         }\n    //         current++;\n    //     }\n\n    //     return ids;\n    // }\n}\ncontract watermarkNegotiation {\n    //Define the watermark schema.\n    struct watermark{\n        uint   sign;\n        uint[] key;\n    }\n\n    mapping(address => uint) public watermark_mapping;\n    uint32 watermark_bit = 64;\n    uint32 verification_threshold = 50;\n\n    function generate_watermark() public {\n        //check if the address already has a mapping\n        uint random_watermark = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender)));\n        watermark_mapping[msg.sender] = random_watermark;\n    }\n\n    function getwatermark_mapping() public view returns (uint) {\n        return watermark_mapping[msg.sender];\n    }\n\n    function verifyWatermark(address user, uint64 upload_watermark) public view returns (bool){\n        if(watermark_mapping[user] == upload_watermark) return true;\n        else return false;\n    }\n\n}\n\n\n",
+  "sourceMap": "1196:839:2:-:0;;;1392:25;;;-1:-1:-1;;;;;;1423:34:2;;;;;1196:839;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/watermark_generator.sol",
+  "type": "contract"
+}
