@@ -1,5 +1,4 @@
-<h1>MILON</h1>  ![Group 7 (1)](https://github.com/DWE-CLOUD/Milon/assets/143874503/49b9a0ad-b19d-461a-9c18-815ac43f2611)
-
+<h1>MILON</h1> ![Alt text](imgg.png)
 
 Federation-Based Blockchain Model for Distributed Training
 Overview
