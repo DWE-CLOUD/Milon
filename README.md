@@ -1,4 +1,8 @@
-<h1>MILON</h1> ![Alt text](imgg.png)
+<h1>MILON</h1> 
+<h2>logo</h2>
+<div align="left">
+    <img src="imgg.png" alt="logo (1)" width="100"/>
+</div>
 
 Federation-Based Blockchain Model for Distributed Training
 Overview
